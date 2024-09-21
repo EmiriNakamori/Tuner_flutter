@@ -135,23 +135,36 @@ class SettingsScreen extends StatelessWidget {
   }
 
   @override
+  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ElevatedButton(
-            onPressed: () => _openURL(
-                'https://doc-hosting.flycricket.io/tunera-privacy-policy/da58ad16-59bb-4be5-a3c3-82d46e3c1d84/privacy'),
-            child: Text('Privacy Policy'),
+    return ListView(
+      padding: EdgeInsets.all(16.0),
+      children: [
+        // セクションヘッダー
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20.0),
+          child: Text(
+            'Settings',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          ElevatedButton(
-            onPressed: () => _openURL(
-                'https://doc-hosting.flycricket.io/tunera-terms-of-use/3262f52a-69b7-4ca0-ad29-be5abe7aa237/terms'),
-            child: Text('Terms of Service'),
-          ),
-        ],
-      ),
+        ),
+        // プライバシーポリシーの項目
+        ListTile(
+          leading: Icon(Icons.privacy_tip, color: Colors.blue),
+          title: Text('Privacy Policy'),
+          trailing: Icon(Icons.arrow_forward_ios),
+          onTap: () => _openURL(
+              'https://doc-hosting.flycricket.io/tunera-privacy-policy/da58ad16-59bb-4be5-a3c3-82d46e3c1d84/privacy'),
+        ),
+        // 利用規約の項目
+        ListTile(
+          leading: Icon(Icons.article, color: Colors.blue),
+          title: Text('Terms of Service'),
+          trailing: Icon(Icons.arrow_forward_ios),
+          onTap: () => _openURL(
+              'https://doc-hosting.flycricket.io/tunera-terms-of-use/3262f52a-69b7-4ca0-ad29-be5abe7aa237/terms'),
+        ),
+      ],
     );
   }
 }
