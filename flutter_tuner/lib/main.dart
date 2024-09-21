@@ -131,11 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
 class SettingsScreen extends StatelessWidget {
   void _openURL(String url) async {
     final Uri uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    } else {
-      throw 'Could not launch $url';
-    }
+    await launchUrl(uri);
   }
 
   @override
